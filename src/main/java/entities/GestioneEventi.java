@@ -1,14 +1,14 @@
-package AlaaElmeleh;
+package entities;
 
 
 import javax.persistence.*;
 import java.util.Date;
 @Entity
 @Table(name="eventi")
-public class GestioneEventi {
+public class GestioneEventi  {
     @Id
     @GeneratedValue
-        private int id;  // Chiave primaria
+        private int id;
         private String titolo;
         private Date dataEvento;
         private String descrizione;
@@ -16,8 +16,13 @@ public class GestioneEventi {
         private TipoEvento tipoEvento;
         private int numeroMassimoPartecipanti;
 
-        public GestioneEventi(int id, String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
-            this.id = id;
+    public GestioneEventi() {
+        // Costruttore senza argomenti
+    }
+
+        public GestioneEventi( String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento,int numeroMassimoPartecipanti) {
+
+
             this.titolo = titolo;
             this.dataEvento = dataEvento;
             this.descrizione = descrizione;
