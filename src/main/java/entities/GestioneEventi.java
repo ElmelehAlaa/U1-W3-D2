@@ -1,13 +1,19 @@
 package entities;
 
 
+import entities.Enum.TipoEvento;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 @Entity
-@Table(name="eventi")
+
 public class GestioneEventi  {
     @Id
-    @GeneratedValue
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
         private int id;
         private String titolo;
         private Date dataEvento;
@@ -16,11 +22,18 @@ public class GestioneEventi  {
         private TipoEvento tipoEvento;
         private int numeroMassimoPartecipanti;
 
+@OneToMany(mappedBy = "evento")
+private Set<Partecipazione> partecipazioni ;
+
+        @OneToOne
+        @JoinColumn(name="location_id")
+        private Location location;
+
     public GestioneEventi() {
         // Costruttore senza argomenti
     }
 
-        public GestioneEventi( String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento,int numeroMassimoPartecipanti) {
+        public GestioneEventi(String titolo, Date dataEvento, String descrizione, TipoEvento tipoEvento, int numeroMassimoPartecipanti) {
 
 
             this.titolo = titolo;

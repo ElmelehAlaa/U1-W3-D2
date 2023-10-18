@@ -8,7 +8,7 @@ public class GestioneEventiDAO {
     public GestioneEventiDAO(EntityManager em){
         this.em=em;
     }
-    public void save(GestioneEventi gestioneEventi){
+    public   void save(GestioneEventi gestioneEventi){
         try{
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
